@@ -9,7 +9,7 @@ import static wiremock.org.hamcrest.MatcherAssert.assertThat;
 /**
  * Created by mtumilowicz on 2018-06-24.
  */
-public class MappingTest {
+public class MappingTest extends BaseTest {
 
     @Rule
     public WireMockRule wireMockRule = new WireMockRule();
