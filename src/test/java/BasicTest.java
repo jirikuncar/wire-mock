@@ -3,30 +3,28 @@ import org.junit.Rule;
 import org.junit.Test;
 
 import static com.github.tomakehurst.wiremock.client.WireMock.*;
-import static com.github.tomakehurst.wiremock.client.WireMock.getRequestedFor;
-import static com.github.tomakehurst.wiremock.client.WireMock.urlEqualTo;
-import static com.github.tomakehurst.wiremock.core.WireMockConfiguration.options;
 import static wiremock.org.hamcrest.CoreMatchers.is;
 import static wiremock.org.hamcrest.MatcherAssert.assertThat;
 
 /**
- * Created by mtumilowicz on 2018-06-24.
+ * Created by mtumilowicz on 2018-06-23.
  */
-public class ConfigurationTest {
+public class BasicTest {
+    
     @Rule
-    public WireMockRule wireMockRule = new WireMockRule(options().port(8999));
-
+    public WireMockRule wireMockRule = new WireMockRule();
+    
+    private static TestClient testClient = new TestClient();
+    
     @Test
     public void test() {
-        TestClient testClient = new TestClient(wireMockRule.port());
-        
         wireMockRule.stubFor(get(urlEqualTo("/test")).willReturn(aResponse()
                 .withHeader("Content-Type", "text/plain")
                 .withBody("Hello world!")));
 
         assertThat(testClient.get("/test").statusCode(), is(200));
         assertThat(testClient.get("/test").content(), is("Hello world!"));
-
+        
         verify(getRequestedFor(urlEqualTo("/test")));
     }
 }
