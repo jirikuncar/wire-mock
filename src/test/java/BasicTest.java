@@ -1,3 +1,4 @@
+import client.Response;
 import org.junit.Test;
 
 import static com.github.tomakehurst.wiremock.client.WireMock.*;
@@ -15,9 +16,9 @@ public class BasicTest extends BaseTest {
                 .withHeader("Content-Type", "text/plain")
                 .withBody("Hello world!")));
 
-        assertThat(testClient.get("/test").statusCode(), is(200));
-        assertThat(testClient.get("/test").content(), is("Hello world!"));
-        
-        verify(getRequestedFor(urlEqualTo("/test")));
+        Response response = testClient.get("/test");
+
+        assertThat(response.statusCode(), is(200));
+        assertThat(response.content(), is("Hello world!"));
     }
 }
