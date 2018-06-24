@@ -14,7 +14,7 @@ public class ConfigurationTest {
     @Rule
     public WireMockRule wireMockRule = new WireMockRule();
     
-    public static TestClient testClient = new TestClient();
+    private static TestClient testClient = new TestClient();
     
     @Test
     public void test() {
@@ -23,6 +23,7 @@ public class ConfigurationTest {
                 .withBody("Hello world!")));
 
         assertThat(testClient.get("/test").statusCode(), is(200));
+        assertThat(testClient.get("/test").content(), is("Hello world!"));
         
         verify(getRequestedFor(urlEqualTo("/test")));
     }
