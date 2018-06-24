@@ -1,3 +1,5 @@
+package client;
+
 import com.github.tomakehurst.wiremock.http.GenericHttpUriRequest;
 import wiremock.org.apache.http.HttpEntity;
 import wiremock.org.apache.http.HttpHost;

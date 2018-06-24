@@ -1,3 +1,5 @@
+package client;
+
 import wiremock.com.google.common.collect.ImmutableListMultimap;
 import wiremock.com.google.common.collect.Multimap;
 import wiremock.org.apache.http.Header;

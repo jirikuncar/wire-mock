@@ -1,6 +1,7 @@
 import com.github.tomakehurst.wiremock.junit.WireMockRule;
 import org.junit.Rule;
 import org.junit.Test;
+import client.TestClient;
 
 import static wiremock.org.hamcrest.CoreMatchers.is;
 import static wiremock.org.hamcrest.MatcherAssert.assertThat;
