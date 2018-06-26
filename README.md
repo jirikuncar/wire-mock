@@ -1,6 +1,6 @@
 # wire-mock
 The main goal of this project is to present basic features of `WireMock`.  
-_Reference_: [WireMock documentation](http://wiremock.org/docs)
+_Reference_: [WireMock documentation](http://wiremock.org/docs)  
 _Reference_: [WireMock github](https://github.com/tomakehurst/wiremock)
 
 # introduction
