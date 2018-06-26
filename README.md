@@ -1,7 +1,7 @@
 # wire-mock
-The main goal of this project is to present basic features of `WireMock`.
+The main goal of this project is to present basic features of `WireMock`.  
 _Reference_: [WireMock documentation](http://wiremock.org/docs)
-_Reference_:
+_Reference_: [WireMock github](https://github.com/tomakehurst/wiremock)
 
 # introduction
 To start and stop WireMock server per-test case:
@@ -30,9 +30,9 @@ WireMockRule wm = new WireMockRule(options().port(2345));
 ```
 
 Useful options:
-* .httpsPort(8001)
-* .dynamicPort()
-* .basicAdminAuthenticator("username", "password")
+* `.httpsPort(8001)`
+* `.dynamicPort()`
+* `.basicAdminAuthenticator("username", "password")`
 * and many more...
 
 # stubbing
@@ -51,13 +51,13 @@ stubFor(get(urlEqualTo("/test"))
 ```
 but `givenThat` is slightly more in `BDD` style.
 
-We could use also fluent API for building responses:
+We could also use fluent API for building responses:
 ```
 stubFor(get("/test")
         .willReturn(ok("test")));
 ```
 
-Fluent API has many more premade methods:
+Fluent API has many premade methods:
 * `okJson("{ \"message\": \"Hello\" }")`
 * `unauthorized()`
 * `badRequest()`
@@ -66,28 +66,25 @@ Fluent API has many more premade methods:
 [More examples of fluent API](https://github.com/tomakehurst/wiremock/blob/master/src/test/java/ignored/Examples.java#374)
 
 # verifying
-The `WireMock` server records all requests it receives in memory 
-(at least until it is reset). This makes it possible to verify that a 
-request matching a specific pattern was received, and also to fetch the 
-requests’ details.
+The `WireMock` server records all requests it receives in memory). 
+This makes it possible to verify that a request matching a specific 
+pattern was received, and also to fetch the requests’ details.
 
 Verifying and querying requests relies on the request journal, which is an 
 in-memory log of received requests.
 
-* to verify that a request matching some criteria was received
+* to verify that a request matching some criteria was received:
   ```
   verify(getRequestedFor(urlEqualTo("/test")));
   ```
 * precise number of requests matching the criteria:
   ```
   verify(2, getRequestedFor(urlEqualTo("/test")));
-  ```
-  ```
   verify(lessThan(1), getRequestedFor(urlEqualTo("/test")));
   ```
   
 # mapping
-If you put a file .json in mappings directory:
+If you put a `.json` file in `mappings` directory:
 ```
 {
   "request": {
@@ -103,7 +100,7 @@ If you put a file .json in mappings directory:
   }
 }
 ```
-then you could simply reference it from the code with no stubbing:
+then you could simply reference response from the code with no stubbing:
 ```
 assertThat(testClient.get("/testmapping").statusCode(), is(200));
 assertThat(testClient.get("/testmapping").content(), is("default test mapping"));
@@ -125,7 +122,7 @@ to produce on demand.
   givenThat(get(urlEqualTo("/fault"))
           .willReturn(aResponse().withFault(Fault.MALFORMED_RESPONSE_CHUNK)));
   ```
-  * EMPTY_RESPONSE: Return a completely empty response.
-  * MALFORMED_RESPONSE_CHUNK: Send an OK status header, 
+  * `EMPTY_RESPONSE`: Return a completely empty response.
+  * `MALFORMED_RESPONSE_CHUNK`: Send an OK status header, 
   then garbage, then close the connection.
-  * RANDOM_DATA_THEN_CLOSE: Send garbage then close the connection.
+  * `RANDOM_DATA_THEN_CLOSE`: Send garbage then close the connection.
