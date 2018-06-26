@@ -19,7 +19,7 @@ public class ConfigurationTest {
     public void test() {
         TestClient testClient = new TestClient(wireMockRule.port());
         
-        wireMockRule.stubFor(get(urlEqualTo("/test")).willReturn(aResponse()
+        stubFor(get(urlEqualTo("/test")).willReturn(aResponse()
                 .withHeader("Content-Type", "text/plain")
                 .withBody("Hello world!")));
 

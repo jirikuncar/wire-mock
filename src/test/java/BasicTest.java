@@ -12,7 +12,7 @@ public class BasicTest extends BaseTest {
     
     @Test
     public void test() {
-        wireMockRule.stubFor(get(urlEqualTo("/test")).willReturn(aResponse()
+        stubFor(get(urlEqualTo("/test")).willReturn(aResponse()
                 .withHeader("Content-Type", "text/plain")
                 .withBody("Hello world!")));
 
