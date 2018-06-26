@@ -18,7 +18,7 @@ public class FaultTest extends BaseTest {
 
     @Test(expected = RuntimeException.class)
     public void fault() {
-        stubFor(get(urlEqualTo("/fault"))
+        givenThat(get(urlEqualTo("/fault"))
                 .willReturn(aResponse().withFault(Fault.MALFORMED_RESPONSE_CHUNK)));
 
         testClient.get("/fault");

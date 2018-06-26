@@ -24,7 +24,7 @@ public class StubTest extends BaseTest {
 
     @Test
     public void stubResponseHeaders() {
-        stubFor(get(urlEqualTo("/test"))
+        givenThat(get(urlEqualTo("/test"))
                 .willReturn(ok()
                         .withHeader("Content-Type", "application/json")
                         .withHeader("Cache-Control", "no-cache")));

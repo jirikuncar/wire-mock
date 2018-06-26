@@ -9,7 +9,7 @@ public class VerifyTest extends BaseTest {
 
     @Test
     public void verifyAtLeastOnce() {
-        stubFor(get(urlEqualTo("/test")).willReturn(aResponse()
+        givenThat(get(urlEqualTo("/test")).willReturn(aResponse()
                 .withHeader("Content-Type", "text/plain")
                 .withBody("Hello world!")));
 
@@ -21,7 +21,7 @@ public class VerifyTest extends BaseTest {
 
     @Test
     public void verifyLessThanOnce() {
-        stubFor(get(urlEqualTo("/test")).willReturn(aResponse()
+        givenThat(get(urlEqualTo("/test")).willReturn(aResponse()
                 .withHeader("Content-Type", "text/plain")
                 .withBody("Hello world!")));
 
@@ -30,7 +30,7 @@ public class VerifyTest extends BaseTest {
     
     @Test
     public void verifyCount() {
-        stubFor(get(urlEqualTo("/test")).willReturn(aResponse()
+        givenThat(get(urlEqualTo("/test")).willReturn(aResponse()
                 .withHeader("Content-Type", "text/plain")
                 .withBody("Hello world!")));
         
