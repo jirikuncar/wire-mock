@@ -10,7 +10,8 @@ public class FaultTest extends BaseTest {
     
     @Test
     public void delay() {
-        stubFor(get(urlEqualTo("/delayed")).willReturn(
+        stubFor(get(urlEqualTo("/delayed"))
+                .willReturn(
                 ok().withFixedDelay(2000)));
         
         testClient.get("/delayed");

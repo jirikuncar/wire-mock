@@ -12,7 +12,8 @@ public class BasicTest extends BaseTest {
     
     @Test
     public void test() {
-        givenThat(get(urlEqualTo("/test")).willReturn(aResponse()
+        givenThat(get(urlEqualTo("/test"))
+                .willReturn(aResponse()
                 .withHeader("Content-Type", "text/plain")
                 .withBody("Hello world!")));
 

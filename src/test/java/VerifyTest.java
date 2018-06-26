@@ -9,7 +9,8 @@ public class VerifyTest extends BaseTest {
 
     @Test
     public void verifyAtLeastOnce() {
-        givenThat(get(urlEqualTo("/test")).willReturn(aResponse()
+        givenThat(get(urlEqualTo("/test")).willReturn(
+                aResponse()
                 .withHeader("Content-Type", "text/plain")
                 .withBody("Hello world!")));
 
