@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.com/mtumilowicz/wire-mock.svg?branch=master)](https://travis-ci.com/mtumilowicz/wire-mock)
+
 # wire-mock
 The main goal of this project is to present basic features of `WireMock`.  
 _Reference_: [WireMock documentation](http://wiremock.org/docs)  
