@@ -68,7 +68,7 @@ Fluent API has many premade methods:
 [More examples of fluent API](https://github.com/tomakehurst/wiremock/blob/master/src/test/java/ignored/Examples.java#374)
 
 # verifying
-The `WireMock` server records all requests it receives in memory). 
+The `WireMock` server records all requests it receives in memory. 
 This makes it possible to verify that a request matching a specific 
 pattern was received, and also to fetch the requests’ details.
 
